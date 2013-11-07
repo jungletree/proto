@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 var texure : Texture2D;
-var penColor : Color.white;
+//var penColor : Color.white;
 
 function Start () {
 
