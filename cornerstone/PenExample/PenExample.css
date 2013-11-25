@@ -1,0 +1,54 @@
+/* clear button background */
+#clearButtonBg {
+    size: 100px 40px;               /* button size */
+    location: 20px 30px;            /* button location */
+    source: "clear_button_bg.png";        /* button image file */
+}
+
+/* clear button label */
+#clearButton {
+    size: 100px 40px;               /* same as Bg size */
+    location : 0px 0px;             /* location relative to Bg*/
+    text: "CLEAR";                  /* button label text */
+    text-align: center;
+    background-color: transparent;
+}
+
+/* circle on/off button background */
+#circleButtonBg {
+    size: 100px 40px;               /* button size */
+    location: 140px 30px;           /* button location */
+    source: "circle_button_bg.png"; /* button image file */
+}
+
+/* circle on/off button label */
+#circleButton {
+    size: 100px 40px;               /* same as Bg size */
+    location: 0px 0px;              /* relative to Bg */
+    text: "SEGMENTS";               /* button label text */
+    text-align: center;
+    background-color: transparent;
+}
+
+/* stroke on/off button background */
+#strokeButtonBg {
+    size: 100px 40px;               /* button size */
+    location: 260px 30px;           /* button location */
+    source: "stroke_button_bg.png"; /* button image file */
+}
+
+/* stroke on/off button label */
+#strokeButton {
+    size: 100px 40px;               /* same as Bg size */
+    location: 0px 0px;              /* relative to Bg */
+    text: "STROKES";                /* button label text */
+    text-align: center;
+    background-color: transparent;
+}
+
+#penVisualizer {
+    textBlinkTime: 0.6;
+    background-image: url(sand.png);
+    background-repeat: repeat;
+    background-color: cyan;
+}
