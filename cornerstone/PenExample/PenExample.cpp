@@ -5,6 +5,8 @@
 
 #include <MultiWidgets/Application.hpp>
 #include <MultiWidgets/TextWidget.hpp>
+#include <MultiWidgets/ImageWidget.hpp>
+#include <MultiWidgets/Animators.hpp>
 
 namespace Examples
 {
@@ -142,27 +144,39 @@ int main(int argc, char ** argv)
   if(!app.init(argc, argv))
     return 1;
 
+  app.setStyleFilename("PenExample.css");
   auto penVisualizer = MultiWidgets::create<Examples::PenVisualizer>();
   app.mainLayer()->addChild(penVisualizer);
   penVisualizer->setSize(app.mainLayer()->size());
+  penVisualizer->setCSSId("penVisualizer");
+  //TODO: find out why below doesn't work
+  //penVisualizer->addAttribute("textBlinkTime", 0.6f);
   penVisualizer->setFixed();
 
   // clear button
   auto clearButton = MultiWidgets::create<MultiWidgets::TextWidget>();
-  clearButton->setSize(60.0, 20.0);
-  clearButton->setLocation(20.0, 30.0);
-  clearButton->setText("CLEAR");
+  clearButton->setCSSId("clearButton");
   clearButton->setInputFlags(MultiWidgets::Widget::INPUT_SINGLE_TAPS | MultiWidgets::Widget::INPUT_KEEP_GRABS);
   clearButton->eventAddListener("single-tap", [&] {
       penVisualizer->m_paths.clear();
       penVisualizer->m_path.clear();
+  auto blink = std::make_shared<MultiWidgets::AnimatorFloat>("glow");
+  blink->addKey(0.0f, 0.f);
+  blink->addKey(0.3f, 1.f);
+  blink->addKey(0.6f, 0.f);
+  //TODO: reuse above code
+  //TODO: find out why below doesn't work
+  //blink->addKey(penVisualizer->textBlinkTime/2.0f, 1.f);
+  //blink->addKey(penVisualizer->textBlinkTime/1.0f, 0.f);
+      clearButton->addOperator(blink);
   });
+  auto clearButtonBg = MultiWidgets::create<MultiWidgets::ImageWidget>();
+  clearButtonBg->setCSSId("clearButtonBg");
+  clearButtonBg->addChild(clearButton);
 
   // circle on/off button
   auto circleButton = MultiWidgets::create<MultiWidgets::TextWidget>();
-  circleButton->setSize(80.0, 20.0);
-  circleButton->setLocation(100.0, 30.0);
-  circleButton->setText("SHOW O");
+  circleButton->setCSSId("circleButton");
   circleButton->setInputFlags(MultiWidgets::Widget::INPUT_SINGLE_TAPS | MultiWidgets::Widget::INPUT_KEEP_GRABS);
   circleButton->eventAddListener("single-tap", [&] {
       if(penVisualizer->m_showCircle) {
@@ -170,25 +184,39 @@ int main(int argc, char ** argv)
       } else {
           penVisualizer->m_showCircle = true;
       }
+  auto blink = std::make_shared<MultiWidgets::AnimatorFloat>("glow");
+  blink->addKey(0.0f, 0.f);
+  blink->addKey(0.3f, 1.f);
+  blink->addKey(0.6f, 0.f);
+      circleButton->addOperator(blink);
   });
+  auto circleButtonBg = MultiWidgets::create<MultiWidgets::ImageWidget>();
+  circleButtonBg->setCSSId("circleButtonBg");
+  circleButtonBg->addChild(circleButton);
 
   // stroke on/off button
   auto strokeButton = MultiWidgets::create<MultiWidgets::TextWidget>();
-  strokeButton->setSize(80.0, 20.0);
-  strokeButton->setLocation(200.0, 30.0);
-  strokeButton->setText("SHOW S");
+  strokeButton->setCSSId("strokeButton");
   strokeButton->setInputFlags(MultiWidgets::Widget::INPUT_SINGLE_TAPS | MultiWidgets::Widget::INPUT_KEEP_GRABS);
   strokeButton->eventAddListener("single-tap", [&] {
-      if(penVisualizer->m_showCircle) {
+      if(penVisualizer->m_showStroke) {
           penVisualizer->m_showStroke = false;
       } else {
           penVisualizer->m_showStroke = true;
       }
+  auto blink = std::make_shared<MultiWidgets::AnimatorFloat>("glow");
+  blink->addKey(0.0f, 0.f);
+  blink->addKey(0.3f, 1.f);
+  blink->addKey(0.6f, 0.f);
+      strokeButton->addOperator(blink);
   });
+  auto strokeButtonBg = MultiWidgets::create<MultiWidgets::ImageWidget>();
+  strokeButtonBg->setCSSId("strokeButtonBg");
+  strokeButtonBg->addChild(strokeButton);
 
-  penVisualizer->addChild(clearButton);
-  penVisualizer->addChild(circleButton);
-  penVisualizer->addChild(strokeButton);
+  penVisualizer->addChild(clearButtonBg);
+  penVisualizer->addChild(circleButtonBg);
+  penVisualizer->addChild(strokeButtonBg);
 
   // Run the application:
   return app.run();
