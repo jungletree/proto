@@ -32,7 +32,7 @@ unix: PKGCONFIG += sndfile
 
 # Create install target for the source files
 other.path = /examples/$$TARGET
-other.files = MenuDemo.pro MenuDemo.cpp
+other.files = MenuDemo.pro MenuDemo.cpp Style.css images/center.png
 
 INSTALLS += other
 
