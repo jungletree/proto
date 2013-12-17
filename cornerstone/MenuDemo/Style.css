@@ -1,24 +1,39 @@
 .card-body {
     background-color: yellow;
     size: 200 160;
+    /* TODO: texture */
 }
 
 .menu-center {
-    size: 50 50;
+    size: 36 36;
+    location: 200 0;    /* card-body.size.x */
+    origin: 0.5 0.5;    /* 0 < origin.x|y < 1 */
 }
 
 .menu-item01 {
     size: 36 36;
+    location: 48 70;     /* menu-center.size.x/2 + 60*cos(-60), menu-center.size.y/2 + 60*sin(60) */
+                         /* 18 + 60 * 0.5, 18 + 60 * sqrt(3)/2 */
+    origin: 0.5 0.5;     /* 0 < origin.x|y < 1 */
 }
 
 .menu-item02 {
     size: 36 36;
+    location: 77 8;      /* menu-center.size.x/2 + 60*cos(-10), menu-center.size.y/2 + 60*sin(-10) */
+                         /* 18 + 60 * c(-3.1415 * 1/18), 18 + 60 * s(-3.1415 * 1/18) */
+    origin: 0.5 0.5;     /* 0 < origin.x|y < 1 */
 }
 
 .menu-item03 {
     size: 36 36;
+    location: 28 -41;    /* menu-center.size.x/2 + 60*cos(-80), menu-center.size.y/2 + 60*sin(-80) */
+                         /* 18 + 60 * c(-3.1415 * 8/18), 18 + 60 * s(-3.1415 * 8/18) */
+    origin: 0.5 0.5;     /* 0 < origin.x|y < 1 */
 }
 
 .menu-item04 {
     size: 36 36;
+    location: -34 -12;   /* menu-center.size.x/2 + 60*cos(-150), menu-center.size.y/2 + 60*sin(-150) */
+                         /* 18 + 60 * c(-3.1415 * 15/18), 18 + 60 * s(-3.1415 * 15/18) */
+    origin: 0.5 0.5;     /* 0 < origin.x|y < 1 */
 }
