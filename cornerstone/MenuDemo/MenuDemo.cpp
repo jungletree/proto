@@ -10,10 +10,7 @@ int main(int argc, char ** argv)
     }
     app.addStyleFilename("Style.css");
 
-    auto frame = MultiWidgets::create<MultiWidgets::Widget();
-    frame->addCSSClass("card-frame");
-
-    auto frame = MultiWidgets::create<MultiWidgets::Widget();
+    auto frame = MultiWidgets::create<MultiWidgets::Widget>();
     frame->addCSSClass("card-frame");
 
     auto bodyWidget = MultiWidgets::create<MultiWidgets::Widget>();
@@ -22,35 +19,35 @@ int main(int argc, char ** argv)
 
     auto menuCenter = MultiWidgets::create<MultiWidgets::ImageWidget>();
     menuCenter->addCSSClass("menu-center");
-    if(menuCenter->load(Radiant::FileUtils::findFile("center.png", ".:images"))) {
+    if(menuCenter->load(Radiant::FileUtils::findFile("menu-center-on.png", ".:images"))) {
         bodyWidget->addChild(menuCenter);
         menuCenter->resizeToFit(menuCenter->size());
     }
 
     auto menuItem01 = MultiWidgets::create<MultiWidgets::ImageWidget>();
     menuItem01->addCSSClass("menu-item01");
-    if(menuItem01->load(Radiant::FileUtils::findFile("item01.png", ".:images"))) {
+    if(menuItem01->load(Radiant::FileUtils::findFile("menu-item-01.png", ".:images"))) {
         menuCenter->addChild(menuItem01);
         menuItem01->resizeToFit(menuItem01->size());
     }
 
     auto menuItem02 = MultiWidgets::create<MultiWidgets::ImageWidget>();
     menuItem02->addCSSClass("menu-item02");
-    if(menuItem02->load(Radiant::FileUtils::findFile("item02.png", ".:images"))) {
+    if(menuItem02->load(Radiant::FileUtils::findFile("menu-item-02.png", ".:images"))) {
         menuCenter->addChild(menuItem02);
         menuItem02->resizeToFit(menuItem02->size());
     }
 
     auto menuItem03 = MultiWidgets::create<MultiWidgets::ImageWidget>();
     menuItem03->addCSSClass("menu-item03");
-    if(menuItem03->load(Radiant::FileUtils::findFile("item03.png", ".:images"))) {
+    if(menuItem03->load(Radiant::FileUtils::findFile("menu-item-03.png", ".:images"))) {
         menuCenter->addChild(menuItem03);
         menuItem03->resizeToFit(menuItem03->size());
     }
 
     auto menuItem04 = MultiWidgets::create<MultiWidgets::ImageWidget>();
     menuItem04->addCSSClass("menu-item04");
-    if(menuItem04->load(Radiant::FileUtils::findFile("item04.png", ".:images"))) {
+    if(menuItem04->load(Radiant::FileUtils::findFile("menu-item-04.png", ".:images"))) {
         menuCenter->addChild(menuItem04);
         menuItem04->resizeToFit(menuItem04->size());
     }
