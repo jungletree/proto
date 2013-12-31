@@ -5,7 +5,8 @@ else {
   else:include(/opt/cornerstone-2.0.0/cornerstone.pri)
 }
 
-SOURCES += MenuDemo.cpp
+SOURCES += MenuDemo.cpp \
+    CardWidget.cpp
 
 LIBS += $$LIB_PATTERNS
 LIBS += $$LIB_NIMBLE
@@ -32,7 +33,18 @@ unix: PKGCONFIG += sndfile
 
 # Create install target for the source files
 other.path = /examples/$$TARGET
-other.files = MenuDemo.pro MenuDemo.cpp Style.css images/center.png
+other.files = MenuDemo.pro MenuDemo.cpp Style.css
 
 INSTALLS += other
+
+HEADERS += \
+    CardWidget.hpp
+
+OTHER_FILES += \
+    images/menu-center-off.png \
+    images/menu-center-on.png \
+    images/menu-item-01.png \
+    images/menu-item-02.png \
+    images/menu-item-03.png \
+    images/menu-item-04.png
 

@@ -1,7 +1,22 @@
 .card-body {
-    background-color: yellow;
+    /*background-color: yellow;
+    */
     size: 200 160;
-    /* TODO: texture */
+    background-image: "images/paper.jpg";
+}
+
+.card-border {
+    background-color: blue;
+    size: 210 170;
+    location: 100 80;
+    origin: 0.5 0.5;
+}
+
+.card-cancel {
+    background-color: #00000000;
+    size: 240 200;
+    location: 100 80;
+    origin: 0.5 0.5;
 }
 
 .menu-center {
@@ -36,4 +51,8 @@
     location: -34 -12;   /* menu-center.size.x/2 + 60*cos(-150), menu-center.size.y/2 + 60*sin(-150) */
                          /* 18 + 60 * c(-3.1415 * 15/18), 18 + 60 * s(-3.1415 * 15/18) */
     origin: 0.5 0.5;     /* 0 < origin.x|y < 1 */
+}
+
+.menu-gray {
+    origin: 0.5 0.5;
 }
