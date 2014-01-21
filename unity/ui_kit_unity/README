@@ -1,0 +1,57 @@
+NGM Unity Project Design Kit README
+
+0. About this Kit
+This kit is intended to be passed from NGM programmer to UI designer and vice versa. Programmer provides this kit with temporary UI resources included so that designer will be able to integrate their UI resources, adjust dimensions and animations, test how they look and work, and finally send it back to programmer.
+
+1. Kit Contents
+This kit contains following;
++ design_kit_demo/
+     + README                          // this document
+     + Assets/
+          + canvas.unity               // Unity scene file. This is the file to open by Unity. 
+          + Textures/
+               + ....psd                    // UI resource files. Please do not rename.
+               + ....psd
+               :
+          :
+
+2. Environment/Requirements
+Hardware:
+ - Mac (fast machine with large screen is preferred)
+Software:
+ - Unity (as of this writing, 4.3 is latest so 4.3+) installed.
+   Free version will do.
+   Download link. Installation should be easy.
+ - Your favorite drawing software. e.g. Photoshop/Illustrator installed.
+
+3. Steps to Run Software
+ - Unzip this design kit bundle and place it at your convenient location.
+ - Open the kit project by double clicking the scene file, Assets/canvas.unity.
+ - Run software by clicking 'play' button.
+ - Check how UI looks and behaves.
+
+ // Before first time you run unity, refer to following for quick reference.
+ // http://japan.unity3d.com/developer/document/tutorial/basic/
+
+4. Steps to Integrate UI files
+ - Refer to .psd files under Assets/Textures directory and author UI graphics using Photoshop.
+ - Export .psd files with the same file names as original
+ - Open Assets/canvas.unity by double clicking the file.
+ - In Project view, open Assets > Textures folder.
+ - Drag and drop your .psd files from OSX Finder to above Textures folder.
+ 
+ // NOTE: You need to drag and drop to Unity GUI. Do not copy files using OSX Finder.
+
+ - Open atlas maker from menu, NGUI > Open > Atlas Maker
+ - Check all the UI files are listed under "Sprites" section and click "Replace".
+ - Check if UI graphic is updated in "Scene" view or "Game" view.
+
+5. Steps to Adjust Animation
+ - In "Hierarchy" view, click any on one sprite, say "menu_center", you will see animation scripts attached to the sprite in "Inspector" view such as "UIButton", "Tween Scale", or "Tween Position". These scripts are kicked by "UIPlay Tween" script attached to "ob" sprite.
+ - Edit parameters in above scripts in Inspector.
+ - Click Play to check how it behaves.
+ - You can also add animations to sprites. That can be done by menu "NGUI > Attach" or "NGUI > Tween". For details please contact developer.
+
+
+Update History
+01/21/2014, initial version, ogino
