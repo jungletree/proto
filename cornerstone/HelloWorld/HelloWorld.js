@@ -53,6 +53,7 @@ the widget. The full source code is shown below:
   w.eventAddListener("finger-down", function(){
   	//finger-down is called for second,third... fingers
   	Radiant.info("finger-down : " + w.location() );
+    // MEMO: i in w[i] wasn't in scope when this was done inside for loop...
     w.touching = true;
   	//store current position of the Widget
   	//how to get current widget?
@@ -75,8 +76,8 @@ the widget. The full source code is shown below:
   	//this function is called everytime.Can use this instead of "move"
       if(w.touching) {
           Radiant.info("onUpdate : " + w.location());
-      }
 	//calc from original position
+      }
 	
   });
   
