@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+		<script src="drawapp.js">
+		</script>
+	</head>
+	<body>
+		<div align="left">
+			<input type="button" id="b" value="Clear" style="width:120px; height:80px; font-size:25px" onclick="clearCanvas()">
+
+			PenSize :    
+			<input type="radio" name="pen" value="p1" style="width:25px; height:25px" onclick="changePensize()"> 1 px
+			<input type="radio" name="pen" value="p2" style="width:25px; height:25px" checked="checked" onclick="changePensize()"> 3 px
+			<input type="radio" name="pen" value="p3" style="width:25px; height:25px" onclick="changePensize()"> 5 px
+			<div>
+				Latency :   
+				<input type="radio" name="latency" value="l1" style="width:25px; height:25px" checked="checked" onclick="changeLatency()"> 0 ms
+				<input type="radio" name="latency" value="l2" style="width:25px; height:25px" onclick="changeLatency()"> 30 ms
+				<input type="radio" name="latency" value="l3" style="width:25px; height:25px" onclick="changeLatency()"> 40 ms
+				<input type="radio" name="latency" value="l4" style="width:25px; height:25px" onclick="changeLatency()"> 50 ms
+				<input type="radio" name="latency" value="l5" style="width:25px; height:25px" onclick="changeLatency()"> 1000 ms(test)
+			</div>
+			<div>
+				X calibration (→が正) <input type="number" id="calib_x" value="-10"> px
+				<input type="button" id="b2" value="Set calibration" onclick="setCalibration()"><br>
+				Y calibration (↑が正) <input type="number" id="calib_y" value="-8"> px<br>
+			</div>
+			<!--<input type="text" id="t" style="width:500px; height:80px; font-size:30px">-->
+		</div>
+			<canvas id="c" style="position:relative; background-color:lightgray;" width="1600" height="900">
+			</canvas>
+	</body>
+</html>
+
+
