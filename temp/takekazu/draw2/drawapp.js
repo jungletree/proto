@@ -28,7 +28,6 @@ window.addEventListener('load', function(){
 
 function start(event){
     //console.log("start");
-    _ev = event;
     cCont.beginPath();  // reset current Path
     cCont.moveTo(_ev.touches[0].pageX - c.offsetLeft - x_max, _ev.touches[0].pageY - c.offsetTop - y_max);  // setting initial coordinate
     drawing = true;  // flag = true
@@ -49,7 +48,7 @@ function move(event){
     if (!drawing) return;
     //console.log("move");
 	//sleep(50);	// T[msec] lag
-    _ev = event;
+    var _ev = event;
 	setTimeout(function(){
     	cCont.lineTo(_ev.touches[0].pageX - c.offsetLeft - x_max, _ev.touches[0].pageY - c.offsetTop - y_max);  // connect last coordinate and current coordinate with a line
 		cCont.stroke();  // draw line on canvas
