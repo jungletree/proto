@@ -18,9 +18,7 @@ window.addEventListener('load', function(){
     // event
     cElem.addEventListener('touchstart', start, false);  // call start() when touchstart event on canvas
     cElem.addEventListener('touchmove', move, false);   // call move() when touchstart event on canvas
-    //window.addEventListener('touchend', stop, false);   //TODO: ask kazuma why window? 
-    cElem.addEventListener('touchend', stop, false);
-    cElem.addEventListener('touchleave', stop, false);
+    window.addEventListener('touchend', stop, false);   // call stop() when touchstart event on window
 
 	// stop to page scroll
 	document.body.addEventListener('touchmove', function(event){
@@ -29,34 +27,43 @@ window.addEventListener('load', function(){
 }, false);
 
 function start(event){
-    var initX = event.touches[0].pageX - c.offsetLeft - x_max;
-    var initY = event.touches[0].pageY - c.offsetTop - y_max;
-    // emulating event passed to application code "late" millisecs after user operation.
-    setTimeout(function(){
-        cCont.beginPath();
-        cCont.moveTo(initX, initY);
-        drawing = true;
-    }, late);
+    //console.log("start");
+    cCont.beginPath();  // reset current Path
+    cCont.moveTo(event.touches[0].pageX - c.offsetLeft - x_max, event.touches[0].pageY - c.offsetTop - y_max);  // setting initial coordinate
+    drawing = true;  // flag = true
 }
 
+/*
+function sleep(T){
+   var d1 = new Date().getTime(); 
+   var d2 = new Date().getTime(); 
+   while( d2 < d1 + T ){			//wait for T[msec]
+       d2 = new Date().getTime();
+   }
+   return;
+}
+*/
+
 function move(event){
-    var lineDestX = event.touches[0].pageX - c.offsetLeft - x_max;
-    var lineDestY = event.touches[0].pageY - c.offsetTop - y_max;
-    // emulating event passed to application code "late" millisecs after user operation.
-    setTimeout(function(){
-        if (!drawing) return;
-        cCont.lineTo(lineDestX, lineDestY);
-        cCont.stroke();
+    if (!drawing) return;
+    //console.log("move");
+	//sleep(50);	// T[msec] lag
+    var dx = event.touches[0].pageX - c.offsetLeft - x_max;
+    var dy = event.touches[0].pageY - c.offsetTop - y_max;
+	setTimeout(function(){
+    	cCont.lineTo(dx, dy);  // connect last coordinate and current coordinate with a line
+		cCont.stroke();  // draw line on canvas
     }, late);
+    //sampling();
 }
 
 function stop(event){
-    // emulating event passed to application code "late" millisecs after user operation.
-    setTimeout(function(){
-        if (!drawing) return;
-        cCont.closePath();
-        drawing = false;
-    }, late);
+    if (!drawing) return;
+    //console.log("stop");
+    //cCont.lineTo(event.touches[0].pageX - c.offsetLeft - x_max, event.touches[0].pageY - c.offsetTop - y_max);	//short line
+    	//cCont.stroke();
+    //cCont.closePath();  // close sub path
+    drawing = false;   // flag = false
 }
 
 function clearCanvas(){
