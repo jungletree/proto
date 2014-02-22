@@ -48,11 +48,13 @@ function move(event){
     if (!drawing) return;
     //console.log("move");
 	//sleep(50);	// T[msec] lag
-    var _ev = event;
-	setTimeout(function(){
-    	cCont.lineTo(_ev.touches[0].pageX - c.offsetLeft - x_max, _ev.touches[0].pageY - c.offsetTop - y_max);  // connect last coordinate and current coordinate with a line
+    var ev = event;
+    var callback = function(){
+    	cCont.lineTo(ev.touches[0].pageX - c.offsetLeft - x_max, ev.touches[0].pageY - c.offsetTop - y_max);  // connect last coordinate and current coordinate with a line
 		cCont.stroke();  // draw line on canvas
-    }, late);
+    };
+
+	setTimeout(callback, late);
     //sampling();
 }
 
