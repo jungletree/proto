@@ -29,7 +29,7 @@ window.addEventListener('load', function(){
 function start(event){
     //console.log("start");
     cCont.beginPath();  // reset current Path
-    cCont.moveTo(_ev.touches[0].pageX - c.offsetLeft - x_max, _ev.touches[0].pageY - c.offsetTop - y_max);  // setting initial coordinate
+    cCont.moveTo(event.touches[0].pageX - c.offsetLeft - x_max, event.touches[0].pageY - c.offsetTop - y_max);  // setting initial coordinate
     drawing = true;  // flag = true
 }
 
