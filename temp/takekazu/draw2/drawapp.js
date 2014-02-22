@@ -29,40 +29,34 @@ window.addEventListener('load', function(){
 }, false);
 
 function start(event){
-    // application code executed in this function are packed as below callback.
     var initX = event.touches[0].pageX - c.offsetLeft - x_max;
     var initY = event.touches[0].pageY - c.offsetTop - y_max;
-    var callBack = function(){
+    // emulating event passed to application code "late" millisecs after user operation.
+    setTimeout(function(){
         cCont.beginPath();
         cCont.moveTo(initX, initY);
         drawing = true;
-    };
-    // emulating event passed to application code "late" millisecs after user operation.
-    setTimeout(callBack, late);
+    }, late);
 }
 
 function move(event){
-    // application code executed in this function are packed as below callback.
     var lineDestX = event.touches[0].pageX - c.offsetLeft - x_max;
     var lineDestY = event.touches[0].pageY - c.offsetTop - y_max;
-    var callBack = function(){
+    // emulating event passed to application code "late" millisecs after user operation.
+    setTimeout(function(){
         if (!drawing) return;
         cCont.lineTo(lineDestX, lineDestY);
         cCont.stroke();
-    };
-    // emulating event passed to application code "late" millisecs after user operation.
-	setTimeout(callBack, late);
+    }, late);
 }
 
 function stop(event){
-    // application code executed in this function are packed as below callback.
-    var callBack = function(){
+    // emulating event passed to application code "late" millisecs after user operation.
+    setTimeout(function(){
         if (!drawing) return;
         cCont.closePath();
         drawing = false;
-    };
-    // emulating event passed to application code "late" millisecs after user operation.
-    setTimeout(callBack, late);
+    }, late);
 }
 
 function clearCanvas(){
