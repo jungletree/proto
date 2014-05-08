@@ -27,7 +27,7 @@ function Update () {
    			var texY : int;
     		texX = (hit.point.x + scaleX/2) * textureWidth / scaleX;
     		texY = (hit.point.y + scaleY/2) * textureHeight / scaleY;
-   			//print("HIT! " + texX + ", " + texY);
+   			print(texX + ", " + texY);
 
 			//TODO: update texture 
 			renderer = hit.collider.renderer;
@@ -36,11 +36,12 @@ function Update () {
 			//print(hit.point);
 			//pixelUV.x *= tex.width;
 			//pixelUV.y *= tex.height;
-			print(tex.width + ", " + tex.height);
+			//print(tex.width + ", " + tex.height);
 			//tex.SetPixel(pixelUV.x, pixelUV.y, Color.red);
 			for (var i = 0; i<10 ; i++){
 				for (var j=0; j<10; j++){
-					tex.SetPixel(texX+i, texY+j, Color.red);
+					//tex.SetPixel(texX+i, texY+j, Color.red);
+					tex.SetPixel(tex.width - texX+i, texY+j, Color.red);
 				}
 			}
 			//tex.SetPixel(texX, texY, Color.red);
@@ -50,7 +51,11 @@ function Update () {
    		}
 	}
 	if(Input.GetKeyUp("mouse 0")){
-		tex.Apply();
+		if(Physics.Raycast(ray, hit)) {
+			renderer = hit.collider.renderer;
+			tex = renderer.material.mainTexture;
+			tex.Apply();
+		}
 	}
 
 }

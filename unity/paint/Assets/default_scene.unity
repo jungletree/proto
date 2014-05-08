@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 185555563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .522873878, y: 0, z: 0}
+  m_LocalPosition: {x: .522889972, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1497853535}
@@ -324,7 +324,7 @@ MonoBehaviour:
     e00: 160
     e01: 0
     e02: 0
-    e03: -.522873878
+    e03: -.522889972
     e10: 0
     e11: 160
     e12: 0
@@ -354,6 +354,7 @@ GameObject:
   - 65: {fileID: 1988527336}
   - 23: {fileID: 1988527335}
   - 114: {fileID: 1988527339}
+  - 114: {fileID: 1988527340}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -418,12 +419,23 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1988527334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8378c5368ef3d748b1902757356f6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
+--- !u!114 &1988527340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1988527334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae989dd2fd7942d79dedb2e1857e48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2003263676
 GameObject:
   m_ObjectHideFlags: 0
