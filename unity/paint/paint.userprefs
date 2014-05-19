@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/draw.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/drawByMesh.js">
     <Files>
-      <File FileName="Assets/draw.js" Line="1" Column="1" />
-      <File FileName="Assets/draw.js" Line="33" Column="8" />
+      <File FileName="Assets/drawByMesh.js" Line="53" Column="81" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
