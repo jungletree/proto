@@ -47,45 +47,45 @@ function Update () {
 			if (segments < 0) {
                 prev = curr;
                 segments = 0;
+            } else if ((prev - curr).magnitude < 2*width){
+                // do nothing..
             } else {
 				var ortho : Vector3 = Vector3(-(prev - curr).y, (prev - curr).x, 0).normalized * width;
 
                 print("prev: " + prev + ", curr: " + curr + ", ortho: " + ortho);
 
-                if (ortho.magnitude > 0) {
-				    vertices.Push(prev + ortho);
-				    vertices.Push(curr + ortho);
-				    vertices.Push(curr - ortho);
-				    vertices.Push(prev - ortho);
+			    vertices.Push(prev + ortho);
+			    vertices.Push(curr + ortho);
+			    vertices.Push(curr - ortho);
+			    vertices.Push(prev - ortho);
 
-				    uvs.Push(Vector2(0,0));
-				    uvs.Push(Vector2(0,1));
-				    uvs.Push(Vector2(1,1));
-				    uvs.Push(Vector2(1,0));
+			    uvs.Push(Vector2(0,0));
+			    uvs.Push(Vector2(0,1));
+			    uvs.Push(Vector2(1,1));
+			    uvs.Push(Vector2(1,0));
 
-				    triangles.Push(4 * segments);
-				    triangles.Push(4 * segments + 1);
-				    triangles.Push(4 * segments + 2);
-				    triangles.Push(4 * segments + 2);
-				    triangles.Push(4 * segments + 3);
-				    triangles.Push(4 * segments);
+			    triangles.Push(4 * segments);
+			    triangles.Push(4 * segments + 1);
+			    triangles.Push(4 * segments + 2);
+			    triangles.Push(4 * segments + 2);
+			    triangles.Push(4 * segments + 3);
+			    triangles.Push(4 * segments);
 
 			//print("segments: " + segments + ", vertices: " + vertices + ", uv: " + uvs + ", triangles: " + triangles);
-                    mesh.Clear();
-				    mesh.vertices = vertices.ToBuiltin(Vector3) as Vector3[];
-				    mesh.uv = uvs.ToBuiltin(Vector2) as Vector2[];
-				    mesh.triangles = triangles.ToBuiltin(int) as int[];
-                    //print(mesh.triangles[mesh.triangles.length - 1]);
+                mesh.Clear();
+			    mesh.vertices = vertices.ToBuiltin(Vector3) as Vector3[];
+			    mesh.uv = uvs.ToBuiltin(Vector2) as Vector2[];
+			    mesh.triangles = triangles.ToBuiltin(int) as int[];
+                //print(mesh.triangles[mesh.triangles.length - 1]);
 
-                    mesh.RecalculateNormals();
-                    mesh.RecalculateBounds();
+                mesh.RecalculateNormals();
+                mesh.RecalculateBounds();
 
-			        Graphics.DrawMesh(square, curr + transform.position, Quaternion.identity, material, 0);
-			        //Graphics.DrawMesh(square, curr, Quaternion.identity, null, 0);
+		        Graphics.DrawMesh(square, curr + transform.position, Quaternion.identity, material, 0);
+		        //Graphics.DrawMesh(square, curr, Quaternion.identity, null, 0);
 
-			        prev = curr;
-			        segments ++;
-                }
+		        prev = curr;
+		        segments ++;
 			}
 			//print("segments: " + segments + ", point: " + hit.point + ", vertices.length: " + mesh.vertices.length + ", uv.length: " + mesh.uv.length + ", triangles.length: " + mesh.triangles.length);
 		}
