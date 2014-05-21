@@ -28,6 +28,7 @@ function Start () {
     ];
 
     strokes = new Mesh();
+
     print("Start executed!!");
 }
 
@@ -78,8 +79,8 @@ function Update () {
 			        prev = curr;
 			        segments ++;
 			    }
-			} else {
-				// do nothing ...
+			} else {   // if mouse travel is small,
+				       // do nothing ...
 			}
 			Graphics.DrawMesh(pointer, curr + transform.position, Quaternion.identity, pointerMaterial, 0);
 		}
