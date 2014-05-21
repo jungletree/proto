@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strokeMaterial: {fileID: 2100000, guid: 7b278614e68614de3a4b0ecae95c69ef, type: 2}
-  pointerMaterial: {fileID: 2100000, guid: 7b278614e68614de3a4b0ecae95c69ef, type: 2}
-  strokeWidth: 6
-  pointerSize: 10
+  pointerMaterial: {fileID: 2100000, guid: 0214ca327bb934973a10bfd92cd6d3d0, type: 2}
+  strokeWidth: 10
+  pointerSize: 20
 --- !u!1 &2028865577
 GameObject:
   m_ObjectHideFlags: 0
