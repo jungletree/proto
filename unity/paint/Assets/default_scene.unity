@@ -149,6 +149,7 @@ GameObject:
   - 23: {fileID: 1988527335}
   - 114: {fileID: 1988527339}
   - 114: {fileID: 1988527340}
+  - 114: {fileID: 1988527341}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -225,13 +226,28 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1988527334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cae989dd2fd7942d79dedb2e1857e48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 0}
-  width: 4
+  width: 20
+--- !u!114 &1988527341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1988527334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997a52124f5b24c27b0d6b448303a3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strokeMaterial: {fileID: 2100000, guid: 7b278614e68614de3a4b0ecae95c69ef, type: 2}
+  pointerMaterial: {fileID: 2100000, guid: 7b278614e68614de3a4b0ecae95c69ef, type: 2}
+  strokeWidth: 6
+  pointerSize: 10
 --- !u!1 &2028865577
 GameObject:
   m_ObjectHideFlags: 0
